@@ -32,9 +32,21 @@ function App() {
     }
   };
 
+  const redModeHandler = () => {
+    if (mode === 'light') {
+      setMode('danger');
+      document.body.style.backgroundColor = '#8f2121';
+      showAlert("Red mode enabled", "success");
+    } else {
+      setMode('light');
+      document.body.style.backgroundColor = 'white';
+      showAlert("Light mode enabled", "success");
+    }
+  };
+
   return (
     <>
-      <Navbar mode={mode} toggleMode={modeHandler} />
+      <Navbar mode={mode} toggleMode={modeHandler} toggleRedMode={redModeHandler} />
       {alert && <Alert alert={alert} />}
       <div className="container my-3">
         <TextForm

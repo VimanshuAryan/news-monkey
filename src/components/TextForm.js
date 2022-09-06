@@ -48,14 +48,14 @@ function TextForm(props) {
                         value={text}>
                     </textarea>
                 </div>
-                <button className="btn btn-primary mx-3" onClick={upperCaseHandler}>Convert to Uppercase</button>
-                <button className="btn btn-primary mx-3" onClick={lowerCaseHandler}>Convert to Lowercase</button>
-                <button className="btn btn-primary mx-3" onClick={copyTextHandler}>Copy Text</button>
-                <button className="btn btn-primary mx-3" onClick={extraSpacesHandler}>Remove extra spaces</button>
+                <button className={`btn btn-${props.mode === 'danger'?'danger':'primary'} mx-3`} onClick={upperCaseHandler}>Convert to Uppercase</button>
+                <button className={`btn btn-${props.mode === 'danger'?'danger':'primary'} mx-3`} onClick={lowerCaseHandler}>Convert to Lowercase</button>
+                <button className={`btn btn-${props.mode === 'danger'?'danger':'primary'} mx-3`} onClick={copyTextHandler}>Copy Text</button>
+                <button className={`btn btn-${props.mode === 'danger'?'danger':'primary'} mx-3`} onClick={extraSpacesHandler}>Remove extra spaces</button>
             </div>
             <div className="container my-3" style={{ color: props.mode === 'light' ? 'black' : 'white' }}>
                 <h2>Your Text Summary</h2>
-                <p>{text.split(" ").length} words and {text.length} characters</p>
+                <p>{text.split(" ").length-1} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length} minutes read</p>
                 <h2>Preview</h2>
                 <p>{text}</p>
